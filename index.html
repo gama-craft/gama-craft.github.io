@@ -9,62 +9,66 @@
   <meta property="og:description" content="디지털 트윈 & 시뮬레이션, 인터랙티브 미디어, 교육 콘텐츠." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="" />
-  <meta name="theme-color" content="#0f172a" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='120' fill='%230f172a'/%3E%3Cpath d='M128 56c-20 22-34 39-34 60 0 25 19 44 34 44s34-19 34-44c0-21-14-38-34-60z' fill='%23f97316'/%3E%3Cpath d='M72 172h112a20 20 0 0 1 20 20v16H52v-16a20 20 0 0 1 20-20z' fill='%23e2e8f0'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" type="image/png" href="images/favicon.ico" />
   <style>
     :root {
-      --bg: #0b1020;         /* deep slate */
-      --panel: #0f172a;      /* slate-900 */
-      --text: #e5e7eb;       /* gray-200 */
-      --muted: #94a3b8;      /* slate-400 */
-      --brand: #f97316;      /* orange-500 */
-      --brand-2: #fb923c;    /* orange-400 */
-      --accent: #22d3ee;     /* cyan-400 */
-      --ring: rgba(34,211,238,.4);
+      /* 로고 기반 컬러 팔레트 (Light Theme & Red Accents) */
+      --bg: #f8fafc;         /* slate-50 - 아주 밝은 회색 바탕 */
+      --panel: #ffffff;      /* white - 카드 등 패널 배경 */
+      --text: #1e293b;       /* slate-800 - 짙은 텍스트 (로고 텍스트 색상과 유사) */
+      --muted: #64748b;      /* slate-500 - 보조 텍스트 */
+      --brand: #9b1c1c;      /* 로고의 짙은 붉은색 */
+      --brand-2: #dc2626;    /* 로고의 밝은 붉은색 */
+      --accent: #b91c1c;     /* 강조 포인트 색상 */
+      --ring: rgba(185, 28, 28, 0.3); /* 포커스 링 */
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Apple SD Gothic Neo, '맑은 고딕', sans-serif;
-      color:var(--text); background:radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.12), transparent 60%),
-                         radial-gradient(1000px 500px at 110% 0%, rgba(249,115,22,.12), transparent 60%), var(--bg);
+      color:var(--text); 
+      /* 은은한 붉은빛 그라데이션 배경 */
+      background:radial-gradient(1200px 600px at 10% -10%, rgba(155, 28, 28, 0.05), transparent 60%),
+                 radial-gradient(1000px 500px at 110% 0%, rgba(220, 38, 38, 0.05), transparent 60%), var(--bg);
       line-height:1.6;
     }
     a{color:inherit;text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(11,16,32,.9), rgba(11,16,32,.6));backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(148,163,184,.15)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
-    .logo-mark{width:28px;height:28px;display:grid;place-items:center;border-radius:999px;background:var(--panel);box-shadow:0 0 0 2px rgba(148,163,184,.25) inset}
-    .logo svg{width:18px;height:18px}
+    header{position:sticky;top:0;z-index:40;background:rgba(255, 255, 255, 0.85);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(0, 0, 0, 0.08)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px} /* 로고 높이에 맞춰 살짝 늘림 */
+    .logo{display:flex;align-items:center;}
+    .logo img {height: 44px; width: auto;} /* 첨부된 로고 이미지 적용 */
     nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
-    nav a{padding:8px 10px;border-radius:10px;color:var(--muted)}
-    nav a:hover, nav a.active{color:var(--text);background:rgba(148,163,184,.1)}
+    nav a{padding:8px 10px;border-radius:10px;color:var(--muted); font-weight: 500;}
+    nav a:hover, nav a.active{color:var(--text);background:rgba(0, 0, 0, 0.05)}
     .hero{padding:96px 0 72px}
-    .headline{font-size:clamp(28px, 6vw, 52px); line-height:1.15;letter-spacing:-.02em;font-weight:800}
-    .sub{color:var(--muted);max-width:720px;margin-top:14px}
+    .headline{font-size:clamp(28px, 6vw, 52px); line-height:1.15;letter-spacing:-.02em;font-weight:800; color: #0f172a;}
+    .sub{color:var(--muted);max-width:720px;margin-top:14px; font-size: 1.1rem;}
     .cta{display:flex;gap:12px;margin-top:24px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      box-shadow:0 6px 20px rgba(2,8,23,.5), inset 0 0 0 1px rgba(255,255,255,.04)}
-    .btn:hover{border-color:rgba(251,146,60,.6);box-shadow:0 8px 26px rgba(2,8,23,.6), 0 0 0 4px var(--ring)}
-    .btn.primary{background:linear-gradient(180deg, var(--brand), var(--brand-2)); color:#0b1020; font-weight:700; border:0}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(0, 0, 0, 0.1);background:#ffffff;
+      box-shadow:0 4px 12px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(255,255,255,0.5); font-weight: 600; color: var(--text); transition: all 0.2s;}
+    .btn:hover{border-color:rgba(185, 28, 28, 0.4);box-shadow:0 6px 16px rgba(0, 0, 0, 0.08), 0 0 0 3px var(--ring)}
+    .btn.primary{background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#ffffff; border:0; text-shadow: 0 1px 2px rgba(0,0,0,0.2);}
+    .btn.primary:hover{box-shadow:0 6px 20px rgba(185, 28, 28, 0.3), 0 0 0 3px var(--ring)}
     .grid{display:grid;gap:18px}
     .two{grid-template-columns:repeat(2, minmax(0, 1fr))}
     .three{grid-template-columns:repeat(3, minmax(0, 1fr))}
     @media (max-width:900px){.two,.three{grid-template-columns:1fr}}
-    section{padding:56px 0;border-top:1px solid rgba(148,163,184,.12)}
-    .card{border:1px solid rgba(148,163,184,.18);border-radius:18px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      box-shadow:0 10px 30px rgba(2,8,23,.55), inset 0 0 0 1px rgba(255,255,255,.03)}
+    section{padding:56px 0;border-top:1px solid rgba(0, 0, 0, 0.06)}
+    .card{border:1px solid rgba(0, 0, 0, 0.06);border-radius:18px;padding:24px;background:rgba(255, 255, 255, 0.6);
+      box-shadow:0 4px 20px rgba(0, 0, 0, 0.02), inset 0 0 0 1px rgba(255,255,255,1); backdrop-filter: blur(10px);}
     .kicker{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:12px}
-    h2{font-size:clamp(22px, 4.5vw, 32px);margin:10px 0 10px;letter-spacing:-.01em}
-    h3{margin:0 0 6px}
+    h2{font-size:clamp(22px, 4.5vw, 32px);margin:10px 0 10px;letter-spacing:-.01em; color: #0f172a;}
+    h3{margin:0 0 6px; color: #1e293b;}
     .muted{color:var(--muted)}
-    .list{display:grid;gap:10px;margin:8px 0 0;padding:0 0 0 18px}
-    .tag{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid rgba(148,163,184,.25);border-radius:999px;color:var(--muted);font-size:12px}
+    .list{display:grid;gap:10px;margin:8px 0 0;padding:0 0 0 18px; color: var(--muted);}
+    .list strong {color: var(--text);}
+    .tag{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid rgba(0, 0, 0, 0.1);background: #fff;border-radius:999px;color:var(--muted);font-size:12px; font-weight: 500;}
     .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    footer{padding:32px 0;color:#94a3b8}
-    .tiny{font-size:12px;color:#94a3b8}
-    .pill{display:inline-block;padding:.25rem .6rem;border:1px solid rgba(148,163,184,.25);border-radius:999px;font-size:12px;color:#cbd5e1}
+    footer{padding:32px 0;color:var(--muted); border-top:1px solid rgba(0, 0, 0, 0.06); background: #ffffff;}
+    .tiny{font-size:12px;color:var(--muted)}
+    .pill{display:inline-block;padding:.25rem .6rem;border:1px solid rgba(0, 0, 0, 0.1);background: #f8fafc; border-radius:999px;font-size:12px;color:var(--muted);}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; font-size:12px}
     section[aria-label="meta"] {padding: 0 !important;}
   </style>
@@ -73,12 +77,7 @@
   <header>
     <div class="container nav">
       <a class="logo" href="#top" aria-label="Gama Craft">
-        <span class="logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 3c-3 3.3-5 5.9-5 9.1C7 15.9 9.7 19 12 19s5-3.1 5-6.9C17 8.9 15 6.3 12 3Z" fill="currentColor"/>
-          </svg>
-        </span>
-        <span>Gama Craft</span>
+        <img src="images/logo1.png" alt="Gama Craft Logo" />
       </a>
       <nav>
         <ul>
@@ -110,13 +109,13 @@
     </section>
 
     <section id="story" class="grid two">
-      <div class="card", style="background-color: rgba(3,12,24,.7);">
+      <div class="card">
         <span class="kicker">Story</span>
         <h2>가마(窯)에서 온 이름, Gama Craft</h2>
         <p class="muted">Icheon의 수백 년 도자기 전통처럼, 우리는 디지털에서도 재료를 고르고, 불(연산)로 구워 형태를 완성합니다. 
           공예적 집요함으로 디지털 프로토타입을 빠르게 만들고, 반복해서 다듬습니다.</p>
       </div>
-      <div class="card", style="background-color: rgba(3,12,24,.7);">
+      <div class="card">
         <h3>What we value</h3>
         <ul class="list">
           <li><strong>Craft</strong> — 작은 디테일의 축적이 전체 경험을 만듭니다.</li>
@@ -130,7 +129,7 @@
       <span class="kicker">Services</span>
       <h2>무엇을 하나요</h2>
       <div class="grid three">
-        <div class="card", style="background-color: rgba(3,12,24,.7);">
+        <div class="card">
           <h3>Research & Simulation</h3>
           <p class="muted">항공·모빌리티 분야의 <strong>디지털 트윈/시뮬레이션</strong> 구축.</p>
           <div class="tags">
@@ -139,7 +138,7 @@
             <span class="tag">Data Pipeline</span>
           </div>
         </div>
-        <div class="card", style="background-color: rgba(3,12,24,.7);">
+        <div class="card">
           <h3>Interactive Media / Game</h3>
           <p class="muted">Unity/Unreal로 <strong>도시·관광 디지털트윈</strong>, 
             사용자 위치 기반 지역 연계 콘텐츠, 전시용 인터랙티브.</p>
@@ -149,7 +148,7 @@
             <span class="tag">WebGL</span>
           </div>
         </div>
-        <div class="card", style="background-color: rgba(3,12,24,.7);">
+        <div class="card">
           <h3>Learning</h3>
           <p class="muted">파일럿/연구자 관점의 <strong>AI·HCI</strong> 입문 워크숍. 
             실험 코드와 노하우를 같이 나눕니다.</p>
@@ -166,12 +165,12 @@
       <span class="kicker">Highlights</span>
       <h2>프로젝트 스냅샷</h2>
       <div class="grid three">
-        <div class="card", style="background-color: rgba(3,12,24,.7);">
+        <div class="card">
           <h3>Icheon Digital Twin</h3>
           <p class="muted">지역 유산(도자기·가마)을 담은 3D 인터랙티브 맵과 체험형 미디어.</p>
           <span class="pill mono">#interactive</span>
         </div>
-        <div class="card", style="background-color: rgba(3,12,24,.7);">
+        <div class="card">
           <h3>AAM/UTM Concept Viz</h3>
           <p class="muted">미래 항공 개념 시각화, 정책/연구 커뮤니케이션을 위한 모형.</p>
           <span class="pill mono">#viz</span>
@@ -184,11 +183,11 @@
       <h2>함께 빚어볼까요?</h2>
       <p class="muted">아이디어 단계의 러프한 스케치도 환영합니다. 아래 채널로 간단히 소개해 주세요.</p>
       <div class="grid two">
-        <div class="card", style="background-color: rgba(3,12,24,.7);">
+        <div class="card">
           <h3>이메일</h3>
           <p class="muted">프로젝트 소개/문의: <a href="mailto:contact@gamacraft.com">contact@gamacraft.com</a></p>
         </div>
-        <div class="card", style="background-color: rgba(3,12,24,.7);">
+        <div class="card">
           <h3>GitHub</h3>
           <p class="muted">코드·데모 업데이트는 GitHub에 공개 저장소로 관리합니다.</p>
           <div class="tags">
@@ -200,7 +199,7 @@
     </section>
 
     <section aria-label="meta" class="tiny">
-      <p>© Gama Craft</p>
+      <p>© Gama Craft 2026</p>
     </section>
   </main>
 
@@ -210,8 +209,6 @@
   </footer>
 
   <script>
-    // year
-    document.getElementById('y').textContent = new Date().getFullYear();
     // scroll spy (simple)
     const links = Array.from(document.querySelectorAll('nav a'));
     const secs = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
