@@ -45,3 +45,5 @@ h1 sup .brand-signal{width:30px;height:30px;filter:invert(19%) sepia(99%) satura
 .ticker .ticker-group>b{display:flex;flex:none;align-items:center;justify-content:center;margin:0;line-height:1}
 .ticker .ticker-group>b .brand-signal{display:block;width:31px;height:31px;transform:translateY(-3px);vertical-align:initial}
 @media(max-width:650px){.ticker-track>.ticker-group{gap:24px;padding-right:24px}.ticker .ticker-group>b .brand-signal{width:26px;height:26px;transform:translateY(-2px)}}
+/* Anchor section labels near the top of the viewport. */
+html{scroll-padding-top:24px}
